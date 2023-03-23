@@ -1,4 +1,9 @@
 out
+primary-sector/practical-agriculture/datasets/MinneApple/counting*
+primary-sector/practical-agriculture/datasets/MinneApple/detection*
+primary-sector/practical-agriculture/datasets/MinneApple/test_data*
+primary-sector/practical-agriculture/datasets/MinneApple/*.tar
+
 
 # jetbrains
 .idea
