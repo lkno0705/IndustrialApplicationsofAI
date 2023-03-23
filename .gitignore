@@ -1,8 +1,8 @@
 out
-primary-sector/practical-agriculture/datasets/MinneApple/counting*
-primary-sector/practical-agriculture/datasets/MinneApple/detection*
-primary-sector/practical-agriculture/datasets/MinneApple/test_data*
-primary-sector/practical-agriculture/datasets/MinneApple/*.tar
+primary-sector/practical-agriculture/datasets/acfr-fruit-dataset/almonds/*
+primary-sector/practical-agriculture/datasets/acfr-fruit-dataset/apples/*
+primary-sector/practical-agriculture/datasets/acfr-fruit-dataset/mangoes/*
+
 
 
 # jetbrains
