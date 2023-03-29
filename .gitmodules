@@ -1,0 +1,3 @@
+[submodule "vit-explain"]
+	path = primary-sector/practical-agriculture/vit-explain
+	url = git@github.com:jacobgil/vit-explain.git
