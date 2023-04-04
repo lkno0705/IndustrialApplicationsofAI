@@ -2,47 +2,67 @@
 \begin{document}
 %Easy customisation of title page
 %TC:ignore
-\myabstract{\include{abstract}}
-\renewcommand{\myTitle}{A Survey of State of the Art Crop Rotation Prediction Approaches}
-\renewcommand{\MyAuthor}{Leon Knorr}
-\renewcommand{\MyDepartment}{Mannheim Master of Datascience}
-\renewcommand{\ID}{1902854}
-\renewcommand{\Keywords}{Agriculture, AI, Crop Rotation}
-\maketitle
+    \myabstract{\include{abstract}}
+    \renewcommand{\myTitle}{A Survey of State of the Art Crop Rotation Prediction Approaches}
+    \renewcommand{\MyAuthor}{Leon Knorr}
+    \renewcommand{\MyDepartment}{Mannheim Master of Datascience}
+    \renewcommand{\ID}{1902854}
+    \renewcommand{\Keywords}{Agriculture, AI, Crop Rotation}
+    \maketitle
 %\vspace{-1.9em}\noindent\rule{\textwidth}{1pt} %add this line if not using abstract
-\onehalfspacing
+    %\onehalfspacing
 %TC:endignore
 
-\section{Introduction}
 
-\section{Methodology}
+    \section{Introduction}
+    Agricultural systems are facing a wide range of challenges. This includes:
+    \begin{itemize}
+        \item feeding a growing population with limited space while keeping prices low~\cite{noauthor_oecd-fao_2021},
+        \item following socio-cultural and lifestyle-driven trends towards a more sustainable and healthier diet offerings~\cite{noauthor_oecd-fao_2021},
+        \item alleviating environmental pressures of intensive agriculture~\cite{upcott_new_2023},
+        \item climate change and with that the rise of extreme weather events~\cite{upcott_new_2023},
+        \item increasing pesticide resistance of pest species~\cite{curl_control_1963}
+    \end{itemize}
+    Most of these challenges have been around for decades, with less severe impacts on yield and profitability~\cite{curl_control_1963, upcott_new_2023}. In order to face these challenges, farmers recognised early on, that using a one-crop system leads to a decrease in yield and promote the emergence of plat diseases and pests. Thus, a Crop Rotation system was invented, where Farmers grew a wide variety of Crops in long circles in a specific order~\cite{noauthor_crop_2023, curl_control_1963}. This not only had a positive effect on yields, but it was also found, that some crop types did benefit each other, it also reduced the need to use extensive and expensive fertilization methods and was able to combat pests and diseases without chemical inputs~\cite{curl_control_1963}. However, in intensive agricultural systems, long crop rotation cycles have been replaced by intensive use of tillage, fertilizers and pesticides, in order to grow more profitable crops more frequently and ultimately increasing financial return~\cite{upcott_new_2023}. These practices have a big impact on the environment, affecting biodiversity, landscape design, decreasing soil properties and harm non-target species and habitats~\cite{upcott_new_2023, dury_models_2012}. Therfore, Crop Rotation techniques are making their return into agricultural systems. However, choosing the right crop and rotation cycle is a challenging task. It is spatially and temporal dependent, and involves a lot of uncertainty in terms of future weather, atmospheric properties and market development~\cite{upcott_new_2023, noauthor_crop_2023, pragathi_crop_nodate}. In addition, the decision maker needs a lot of specialized knowledge about different crop types, their relation, benefits and needs. To support actors that are concerned with deciding on Crop Rotation and Cropping Plans, current research is developing a variety of models, which promise to accurately predict the following crop or even whole crop rotation sequences. In this paper, different approaches to Crop Rotation prediction are summarized, explained and discussed with regards to different criteria. Ultimately all approaches are then categorized in terms of their usability and practical relevance.
 
-\section{Crop Rotation}
+    \section{Methodology}
+    In the first section, crop rotation and their practical application is defined. In the second section, different approaches to crop prediction applications are outlined and compared in terms of:
+    \begin{itemize}
+        \item their methodology, this includes the categorization into three main categories: classic approaches, which use expert knowledge, data analysis which use traditional data mining and decision support methods and machine learning approaches.
+        \item the input data the system is able to work with,
+        \item their overall goals,
+    \end{itemize}
+    In the third section, the overall real world usability and practical relevance of the system is assessed and points for improvement are outlined.
 
-\section{Taxonomy of Crop Prediction Approaches}
+    \section{Crop Rotation}
 
-\subsection{Methodology}
 
-\subsubsection{Classic Approaches}
+    \section{Taxonomy of Crop Prediction Approaches}
 
-\subsubsection{Data Analysis}
+    \subsection{Methodology}
 
-\subsubsection{Machine Learning}
+    \subsubsection{Classic Approaches}
 
-\subsection{Input data}
+    \subsubsection{Data Analysis}
 
-\subsection{Goals}
+    \subsubsection{Machine Learning}
 
-\section{Usability \& Practical Relevance}
+    \subsection{Input data}
 
-\section{Conclusion}
+    \subsection{Goals}
+
+
+    \section{Usability \& Practical Relevance}
+
+
+    \section{Conclusion}
 
 %TC:ignore
 %\clearpage %add new page for references
-\singlespacing
-\emergencystretch 3em
-\hfuzz 1px
-\printbibliography[heading=bibnumbered]
+    \singlespacing
+    \emergencystretch 3em
+    \hfuzz 1px
+    \printbibliography[heading=bibnumbered]
 
 % \clearpage
 % \begin{appendices}
