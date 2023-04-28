@@ -138,4 +138,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Additonal excluded directories
 /primary-sector/practical-agriculture/models/
+/secondary-sector/practical-supply-chain-management/data/store-sales-time-series-forecasting/
+/secondary-sector/practical-supply-chain-management/data/TV-sales-Forecasting/
+/secondary-sector/practical-supply-chain-management/data/Walmart-Sales-Forecast/
