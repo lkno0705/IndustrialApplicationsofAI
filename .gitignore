@@ -4,6 +4,7 @@ primary-sector/practical-agriculture/datasets/acfr-fruit-dataset/apples/*
 primary-sector/practical-agriculture/datasets/acfr-fruit-dataset/mangoes/*
 primary-sector/practical-agriculture/lightning_logs
 
+**/.DS_Store
 
 # jetbrains
 .idea
