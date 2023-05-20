@@ -344,4 +344,3 @@
 \RequirePackage[style=nature, maxbibnames=99, doi=false,url=false,isbn=false,hyperref=true, backref=false, natbib=true, labelnumber]{biblatex}
 
 %Add reference files!!!
-\addbibresource{references.bib}

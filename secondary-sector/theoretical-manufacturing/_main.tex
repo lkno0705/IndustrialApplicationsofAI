@@ -1,10 +1,13 @@
 \documentclass{Academic}
 \usepackage{csquotes}
+
+\addbibresource{references.bib}
+
 \begin{document}
 %Easy customisation of title page
 %TC:ignore
     \myabstract{\include{abstract}}
-    \renewcommand{\myTitle}{WIP: Machine Learning Applications in Silicon / Waver Manufacturing}
+    \renewcommand{\myTitle}{WIP: Machine Learning Applications in Silicon / Wafer Manufacturing}
     \renewcommand{\MyAuthor}{Leon Knorr}
     \renewcommand{\MyDepartment}{Mannheim Master of Datascience}
     \renewcommand{\ID}{1902854}
@@ -16,7 +19,40 @@
 
 
     \section{Introduction}
-    Introduction Here
+    The semiconductor industry plays a pivotal role in driving technological advancements across various sectors, including electronics, communications, and computing. The production of high-quality semiconductor wafers is a critical step, as these wafers serve as the foundation for manufacturing integrated circuits and microchips \cite{batool_systematic_2021}. As the demand for smaller, faster, and more powerful devices continues to grow, the need for efficient and accurate wafer manufacturing processes becomes increasingly important. In recent years, Artificial Intelligence (AI) has emerged as a transformative technology, offering unprecedented opportunities for enhancing the semiconductor manufacturing workflow \cite{batool_systematic_2021,susto_automatic_2012}.
+    Especially machine learning (ML) algorithms, have the potential to revolutionize semiconductor wafer manufacturing by providing intelligent solutions for quality control and process optimization. For example, traditionally, wafer inspection and defect detection have been labor-intensive and time-consuming tasks performed by human operators, leading to potential errors and inconsistencies. In addition, human operators operate without using every bit of the vast amounts of data available in a wafer manufacturing fab. Each machine of the manufacturing process is equipped with hundreds of sensors, that measure the conditions of the current process \cite{kim_machine_2012}. However, the integration of AI into the manufacturing process can significantly improve these aspects, enabling real-time, automated, and highly accurate detection and classification of defects \cite{yuan-fu_deep_2019-1}. Aside from defect detection, semiconductor manufacturing poses a lot of potential applications where AI can thrive and enhance the capabilities of a manufacturing plant. This paper aims to explore various applications of AI and machine learning in a semiconductor manufacturing process by explaining them and discussing their impact on the industry.
+
+    \section{Approach}
+    First, the manufacturing process of semiconductors is defined and the performance indicators for semiconductor manufacturing factories are laid out. Afterwards, a survey of current applications of AI in the manufacturing process is presented. During the survey, each field of application is explained, and different approaches are laid out and discussed.
+
+    \section{Semiconductor Manufacturing}
+    In this section, the process of semiconductor manufacturing, as well as important definitions are presented.
+
+    \subsection{The Manufacturing Process}
+
+    \subsubsection{Wafer Formation}
+
+    \subsubsection{Front End Processing}
+
+    \subsubsection{Testing}
+
+    \subsubsection{Packaging}
+
+    \subsection{Performance Indicators of Semiconductor Fabs}
+
+    \section{AI Applications}
+
+    \subsection{Virtual Metrology}
+
+    \subsection{Defect Detection}
+
+    \subsection{Yield Management}
+
+    \subsection{Cycle Time Optimization}
+
+    \subsection{Predictive Maintenance}
+
+    \section{Conclusion}
 
 %TC:ignore
 %\clearpage %add new page for references
