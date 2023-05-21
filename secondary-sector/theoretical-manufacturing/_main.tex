@@ -26,19 +26,42 @@
     First, the manufacturing process of semiconductors is defined and the performance indicators for semiconductor manufacturing factories are laid out. Afterwards, a survey of current applications of AI in the manufacturing process is presented. During the survey, each field of application is explained, and different approaches are laid out and discussed.
 
     \section{Semiconductor Manufacturing}
-    In this section, the process of semiconductor manufacturing, as well as important definitions are presented.
+    In this section, an overview of the process of semiconductor manufacturing, as well as important definitions are presented.
 
     \subsection{The Manufacturing Process}
+    The manufacturing of semiconductors is a highly delicate and complicated procedure \cite{noauthor_machine_nodate}. It consists of hundreds of processes, where the input materials are processed according to the given recipes. These processes can be summarized into four stages:
+    \begin{itemize}
+        \item Wafer Formation
+        \item Front End Processing
+        \item Testing
+        \item Packaging
+    \end{itemize}
+    Each of these stages is presented in detail in the following section. \\
+    It is important to note, that this section only presents the basics of the manufacturing process and that it could've been altered or optimized for different recipes or to improve yields. As a result, some steps mentioned later on during the discussion of AI applications in this industry may not be listed here but are explained as needed.
 
     \subsubsection{Wafer Formation}
+    During Wafer Formation, a so-called wafer is created. A wafer is a thin slice, often of a round shape, of extremely pure crystalline material. Usually silicon crystals are used. These wafers serve as the foundational material for microelectronic devices \cite{susto_automatic_2012}. Each Wafer will hold multiple dies, where a die refers to one specific microchip. After a wafer is formed, it is organized into \enquote{Lots}. Each lot contains up to 25 wafers, which are processed together, using the same recipe and configuration at each step in the applied recipe \cite{susto_automatic_2012}. After Wafer Formation, the formed wafers will continue to Front End Processing.
 
     \subsubsection{Front End Processing}
+    Front End Processing, encompasses the creation of transistors on a silicon wafer. It is performed in special \enquote{clean rooms}, where dust, vapor and other pollutants are kept at a minimum. This is achieved through air filtering and strict access policies \cite{susto_automatic_2012}. Each step in the Front End Process is repeated multiple times, to produce multiple interconnected layers on a wafers surface. \\
+    First, a Lot of wafers runs through \textit{Wafer-cleaning}. In this step, each wafer is cleaned, such that is has a surface which is as smooth as possible. This is important, as following processes have strict requirements concerning surface smoothness and particle contamination. If one of these requirements are not fulfilled as good as possible, it can lead to defective dies later on in the process and reduce yields \cite{susto_automatic_2012}.\\
+    After Wafer-cleaning, each wafer is run through a process called \textit{deposition}. During deposition, a dielectric and polysilicon film is applied to each individual wafer \cite{susto_automatic_2012}. This film serves as the foundation for \textit{Photo Lithography}. During Photo Lithography, an ultraviolet radiation is transmitted through a \textit{photomask} to create circuit patterns according to the recipes. The radiation travels through the non-opaque parts of the mask and reacts with the previously applied film, which is coated onto the wafers surface as a result \cite{susto_automatic_2012}. As this mask essentially burns in the required circuits into the film, the mask has to be aligned as accurately as possible, with only very small tolerances.\\
+    After Photo Lithography, the lot of wafers are passed on to \textit{Etching}. During Etching, unused chemicals and layers are removed from a wafer. In the etching process, the circuits patterned onto the wafer using the resistant film, during Photo Lithography, serve as a masking material which resits the etchant. As a result, the patterned circuits are transferred onto the wafer by removing unnecessary material, layers and chemicals \cite{susto_automatic_2012}.\\
+    After Front End Processing is complete, and all needed circuits are transferred onto the actual wafers, each wafer lot proceeds to Testing.
 
     \subsubsection{Testing}
+    During Testing, each circuit is tested for functionality and defects. Two different types of tests are carried out:
+    \begin{description}
+        \item[Parametric Tests] Parametric Tests are performed to monitor the efficiency of the process and the quality of the design. It is measured on ad-hoc structured prepared onto the device, and consists of electrical measurements of physical quantities, such as impedance, capacitance and resistance \cite{susto_automatic_2012}.
+        \item[Electrical Tests] Electrical Tests, verify that each die works within specifications, and that its behavior is consistent. If a die performs out of spec, it is marked with a small dot of ink and the passing / non-passing information is stored in a \textit{wafermap} \cite{susto_automatic_2012}.
+    \end{description}
+    After testing, the manufactured wafers proceed to \textit{Packaging}.
 
     \subsubsection{Packaging}
+    In Packaging, the wafers are sawed into pieces, which only include one die at a time. Then, electrical connections, such as Pins etc., and Integrated Heat Spreaders (IHS) are added to the chip to protect it from mechanical and environment stress, as well providing a proper thermal path for the heat the chip generates under load \cite{susto_automatic_2012}.
 
     \subsection{Performance Indicators of Semiconductor Fabs}
+    As with any manufacturing process, semiconductor factories have certain indicators, that represent their efficiency, competitiveness and success. The two main Indicators are the Yield and costs of the manufacturing process \cite{yuan-fu_deep_2019-1,batool_systematic_2021}. The yield of the process refers to the total amount of chips produced for a given recipe. Yields of a certain ordered chip can vary a lot depending on the state of the equipment, the raw materials, procedures applied etc. Improving Yield, will also decrease costs, as the process gets more efficient and less material has to be used to produce the same number of chips, or if seen the other way around, more chips can be produced for the same amount of material and costs. Improving yield, will also increase the competitiveness of a given factory, as offered pricing can be adjusted accordingly \cite{batool_systematic_2021}. As yield is influenced by a lot of measurable factors, which in return involves a lot of data, applications around yield optimization are the primary ares of use for AI applications \cite{jiang_novel_2020}. In reality however, a lot more indicators are present to define the competitiveness of a semiconductor factory, such as the smallest available node size, which influences the power efficiency of a chip and allows the packaging of a lot more transistors onto the same die size.
 
     \section{AI Applications}
 
