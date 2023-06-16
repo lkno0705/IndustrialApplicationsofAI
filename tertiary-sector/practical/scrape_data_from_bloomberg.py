@@ -17,6 +17,7 @@ from time import sleep
 from random import randint
 import regex as re
 
+from nordvpn_switcher import initialize_VPN, rotate_VPN
 
 def scrape_bloomberg(url: str) -> str:
     with sync_playwright() as pw:
@@ -40,6 +41,8 @@ def scrape_bloomberg(url: str) -> str:
 
 if __name__ == "__main__":
 
+    initialize_VPN(area_input=['complete rotation'])
+
     # logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
     if len(sys.argv) > 1:
@@ -54,11 +57,13 @@ if __name__ == "__main__":
             result.append((url, datetime.strptime(scrape_bloomberg(str(url)),
                                                   "%Y-%m-%d")))  # scrape current url
 
+            if cnt % 5 == 0:
+                rotate_VPN()
             # sleep after sampled number of requests to obfuscate scraping
-            if cnt % number_of_requests_before_sleep == 0:
-                number_of_requests_before_sleep = randint(5, 20)
-                slt = randint(30, 60)
-                logging.info(f"sleeping for {slt}s")
-                sleep(slt)
-                logging.info(f"{number_of_requests_before_sleep} before sleeping")
+            # if cnt % number_of_requests_before_sleep == 0:
+            #     number_of_requests_before_sleep = randint(5, 20)
+            #     slt = randint(30, 60)
+            #     logging.info(f"sleeping for {slt}s")
+            #     sleep(slt)
+            #     logging.info(f"{number_of_requests_before_sleep} before sleeping")
         pd.DataFrame(result, columns=["url", "datetime"]).to_csv("datasets/scraped_bloomberg_dates.csv", index=False)

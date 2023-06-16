@@ -1,3 +1,4 @@
+import os
 import sys
 
 import logging
@@ -15,13 +16,11 @@ from datetime import datetime
 from time import sleep
 from random import randint
 
+from nordvpn_switcher import initialize_VPN, rotate_VPN
+
 
 def scrape_tweet(url: str) -> str:
-    """
-    Scrape a single tweet page for Tweet thread e.g.:
-    https://twitter.com/Scrapfly_dev/status/1667013143904567296
-    Return parent tweet, reply tweets and recommended tweets
-    """
+
     _xhr_calls = []
 
     def intercept_response(response):
@@ -64,13 +63,14 @@ def scrape_tweet(url: str) -> str:
 
 if __name__ == "__main__":
 
+    initialize_VPN(area_input=['complete rotation'])
     # logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
     if len(sys.argv) > 1:
 
         # use random sampling of numbers and sleep times to obfuscate scraping activity
-        number_of_tweets_before_sleep: int = randint(5, 20)
-        logging.info(f"{number_of_tweets_before_sleep} before sleeping")
+        # number_of_tweets_before_sleep: int = randint(5, 20)
+        # logging.info(f"{number_of_tweets_before_sleep} before sleeping")
 
         result: List[Tuple[str, datetime]] = []
 
@@ -78,11 +78,14 @@ if __name__ == "__main__":
             result.append((url, datetime.strptime(scrape_tweet(str(url)),
                                                   "%a %b %d %H:%M:%S %z %Y")))  # scrape current url
 
+            if cnt % 5 == 0:
+                rotate_VPN()
             # sleep after sampled number of tweets to obfuscate scraping
-            if cnt % number_of_tweets_before_sleep == 0:
-                number_of_tweets_before_sleep = randint(5, 20)
-                slt = randint(30, 60)
-                logging.info(f"sleeping for {slt}s")
-                sleep(slt)
-                logging.info(f"{number_of_tweets_before_sleep} before sleeping")
+            # if cnt % number_of_tweets_before_sleep == 0:
+            #
+            #     number_of_tweets_before_sleep = randint(5, 20)
+            #     slt = randint(30, 60)
+            #     logging.info(f"sleeping for {slt}s")
+            #     sleep(slt)
+            #     logging.info(f"{number_of_tweets_before_sleep} before sleeping")
         pd.DataFrame(result, columns=["url", "datetime"]).to_csv("./datasets/scraped_twitter_dates.csv", index=False)
