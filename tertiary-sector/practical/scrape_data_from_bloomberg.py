@@ -41,7 +41,7 @@ def scrape_bloomberg(url: str) -> str:
 
 if __name__ == "__main__":
 
-    initialize_VPN(area_input=['complete rotation'])
+    initialize_VPN(save=1, area_input=['complete rotation'])
 
     # logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -54,8 +54,13 @@ if __name__ == "__main__":
         result: List[Tuple[str, datetime]] = []
 
         for cnt, url in tqdm(enumerate(sys.argv[1:], start=1)):
-            result.append((url, datetime.strptime(scrape_bloomberg(str(url)),
-                                                  "%Y-%m-%d")))  # scrape current url
+            try:
+                date = datetime.strptime(scrape_bloomberg(str(url)), "%Y-%m-%d")
+            except:
+                logging.warning(f"Could not extract date for URL: {url}")
+                date = None
+
+            result.append((url, date))  # scrape current url
 
             if cnt % 5 == 0:
                 rotate_VPN()
