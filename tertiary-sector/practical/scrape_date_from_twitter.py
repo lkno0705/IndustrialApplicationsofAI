@@ -8,6 +8,7 @@ import pandas as pd
 import playwright.sync_api._generated
 from playwright.sync_api import sync_playwright
 from nested_lookup import nested_lookup
+from tqdm import tqdm
 
 from datetime import datetime
 
@@ -59,7 +60,7 @@ def scrape_tweet(url: str) -> str:
 
 if __name__ == "__main__":
 
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    # logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
     if len(sys.argv) > 1:
         with sync_playwright() as pw:
@@ -73,7 +74,7 @@ if __name__ == "__main__":
 
             result: List[Tuple[str, datetime]] = []
 
-            for cnt, url in enumerate(sys.argv[1:], start=1):
+            for cnt, url in tqdm(enumerate(sys.argv[1:], start=1)):
                 result.append((url, datetime.strptime(scrape_tweet(str(url)),
                                                       "%a %b %d %H:%M:%S %z %Y")))  # scrape current url
 
