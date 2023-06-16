@@ -1,0 +1,62 @@
+import os
+import sys
+
+import logging
+from typing import Dict, List, Tuple
+
+import jmespath
+import pandas as pd
+import playwright.sync_api._generated
+from playwright.sync_api import sync_playwright
+from nested_lookup import nested_lookup
+
+from datetime import datetime
+
+from time import sleep
+from random import randint
+import regex as re
+
+def scrape_tweet(url: str) -> str:
+
+    page: playwright.sync_api._generated.Page = context.new_page()
+
+    # go to url and wait for the page to load
+    page.goto(url)
+    page.wait_for_load_state()
+    match = re.search(r'(?:<time itemprop="datePublished" datetime=")(\d{4}-\d{2}-\d{2})', page.content()).groups()[0]
+    slt: int = randint(10, 40)
+    logging.info(f"sleeping for {slt}s")
+    sleep(slt)  # sleep to emulate reading the tweet
+    page.close()
+    return match
+
+
+if __name__ == "__main__":
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+
+    if len(sys.argv) > 1:
+        with sync_playwright() as pw:
+            browser: playwright.sync_api._generated.Browser = pw.chromium.launch(headless=False)
+            context: playwright.sync_api._generated.BrowserContext = browser.new_context(
+                viewport={"width": 1920, "height": 1080})
+
+            # use random sampling of numbers and sleep times to obfuscate scraping activity
+            number_of_requests_before_sleep: int = randint(5, 20)
+            logging.info(f"{number_of_requests_before_sleep} before sleeping")
+
+            result: List[Tuple[str, datetime]] = []
+
+            for cnt, url in enumerate(sys.argv[1:], start=1):
+                result.append((url, datetime.strptime(scrape_tweet(str(url)),
+                                                      "%Y-%m-%d")))  # scrape current url
+
+                # sleep after sampled number of requests to obfuscate scraping
+                if cnt % number_of_requests_before_sleep == 0:
+                    number_of_requests_before_sleep = randint(5, 20)
+                    slt = randint(30, 60)
+                    logging.info(f"sleeping for {slt}s")
+                    sleep(slt)
+                    logging.info(f"{number_of_requests_before_sleep} before sleeping")
+            print(os.getcwd())
+            pd.DataFrame(result, columns=["url", "datetime"]).to_csv("datasets/scraped_bloomberg_dates.csv", index=False)
