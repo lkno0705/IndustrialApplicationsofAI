@@ -1,0 +1,42 @@
+\documentclass{Academic}
+\usepackage{csquotes}
+
+\addbibresource{references.bib}
+
+\begin{document}
+%Easy customisation of title page
+%TC:ignore
+    \myabstract{\include{abstract}}
+    \renewcommand{\myTitle}{Applications of Artificial Intelligence in Silicon / Wafer Manufacturing}
+    \renewcommand{\MyAuthor}{Leon Knorr}
+    \renewcommand{\MyDepartment}{Mannheim Master of Datascience}
+    \renewcommand{\ID}{1902854}
+    \renewcommand{\Keywords}{Manufacturing, AI, Silicon, Waver}
+    \maketitle
+%\vspace{-1.9em}\noindent\rule{\textwidth}{1pt} %add this line if not using abstract
+    %\onehalfspacing
+%TC:endignore
+
+
+    \section{Introduction}
+    
+    \section{Approach}
+
+    \section{Conclusion}
+
+%TC:ignore
+%\clearpage %add new page for references
+    \singlespacing
+    \emergencystretch 3em
+    \hfuzz 1px
+    \printbibliography[heading=bibnumbered]
+
+% \clearpage
+% \begin{appendices}
+
+% \section{Here go any appendices!}
+
+% \end{appendices}
+
+%TC:endignore
+\end{document}
